@@ -718,8 +718,8 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: BeatEmUp(Test edition)
-  metroPackageVersion: 
+  metroPackageName: BeatEmUpTestedition
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -727,7 +727,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: BeatEmUp(Test edition)
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: BeatEmUp(Test edition)
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
