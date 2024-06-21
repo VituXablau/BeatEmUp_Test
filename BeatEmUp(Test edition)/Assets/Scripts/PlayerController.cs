@@ -1,39 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : EntitiesController
 {
-    private EntitiesController controller;
+    private Rigidbody2D rig;
 
     private float dirX, dirY;
 
     [SerializeField]
     private float spd;
 
-    private Attack weakPunch, weakKick;
+    [SerializeField]
+    private Attack[] attacks;
 
     void Start()
     {
-        controller = GetComponent<EntitiesController>();
-
-        weakPunch = new Attack("Punch", 3, 5);
-        weakKick = new Attack("Kick", 5, 7);
+        rig = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
+        Debug.Log("Vida do " + gameObject.name + "= " + life);
+
         dirX = Input.GetAxis("Horizontal");
         dirY = Input.GetAxis("Vertical");
 
         if (Input.GetKeyDown(KeyCode.J))
-            StartCoroutine(controller.Attacking(weakPunch));
+            StartCoroutine(Attacking(attacks[0]));
         if (Input.GetKeyDown(KeyCode.K))
-            StartCoroutine(controller.Attacking(weakKick));
+            StartCoroutine(Attacking(attacks[1]));
+        if (Input.GetKeyDown(KeyCode.N))
+            StartCoroutine(Attacking(attacks[2]));
+        if (Input.GetKeyDown(KeyCode.M))
+            StartCoroutine(Attacking(attacks[3]));
     }
 
     void FixedUpdate()
     {
-        controller.Move(dirX, dirY, spd);
+        Move(rig, dirX, dirY, spd);
     }
 }
